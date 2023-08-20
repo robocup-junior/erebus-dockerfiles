@@ -13,4 +13,4 @@ COPY . .
 RUN pip3 install -r requirements.txt
 
 # Run my controller (using extern controller helper)
-CMD webots-controller --protocol=tcp --ip-address=$EREBUS_SERVER --port=1234 --robot-name=Erebus_Bot bot.py
+CMD webots-controller --protocol=tcp --ip-address=$EREBUS_SERVER --port=1234 --robot-name=Erebus_Bot --stdout-redirect --stderr-redirect bot.py

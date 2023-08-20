@@ -13,4 +13,4 @@ COPY . .
 RUN make
 
 # Run my controller (using extern controller helper)
-CMD webots-controller --protocol=tcp --ip-address=$EREBUS_SERVER --port=1234 --robot-name=Erebus_Bot main
+CMD webots-controller --protocol=tcp --ip-address=$EREBUS_SERVER --port=1234 --robot-name=Erebus_Bot --stdout-redirect --stderr-redirect main
