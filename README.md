@@ -6,7 +6,9 @@ This image is intended as a base to use for creating your own docker images. You
 
 The image will install the needed Webots files, along with OpenCV dependencies for Python and C++. The default work directory is set as `/user/local/`.
 
-## Use from Docker hub - CURRENTLY UNAVAILABLE
+Note: Running any GUI, such as OpenCV show image, will not work by default since no graphical server is set up within the container.
+
+## Use from Docker hub
 
 You can pull the image from Docker hub:
 
