@@ -1,11 +1,10 @@
 # Getting Started
 
-Our aim with running Erebus robot controllers in containers is to make installation and
+Our aim with running Erebus robot controllers in docker containers is to make installation and
 deployment of your code easy for tournament organisers. This document outlines some of
-the technical base for creating docker images, and some examples to get you
-started.
+the technical base for creating docker images, and some examples to get you started.
 
-Note: Running any GUI, such as OpenCV show image, will not work since no graphical server is set up within the container.
+**Note: Running any GUI, such as OpenCV show image, will not work since no graphical server is set up within the container by default.**
 
 ## Contents
 
@@ -34,27 +33,30 @@ Note: Running any GUI, such as OpenCV show image, will not work since no graphic
 
 ## Understanding Docker Images
 
-A docker image is contained "image" of how to set up and run a virtual environment. 
-These are called containers. We create an image to describe exactly how to set up software
+Docker is used to "containerize" your application so it can be deployed easily
+across computers. It uses virtual machines to contain your code within pre-defined
+environments.
+
+A docker image is a contained "image" of how to set up and run a virtual environment, containing an isolated filesystem. This isolated filesystem is provided by an image, and should contain everything needed to build and run an application. We create an image to describe exactly how to set up software
 in order to run the code we want.
+Building and running a docker image creates a sandboxed process isolated from the host system, this is called a container. 
 
 How to build an image is described within a `Dockerfile`. These are effectively a simple
 set of steps of how to set up the virtual machine your code will live in. 
 When telling docker how to set up the environment, we can also install any 
 dependencies we may need. To increase reusability, we can use one image as a "base" for how to create another.
 
-It is important to note that these environments run in Linux.
+It is important to note that these environments run in Linux. You can read more about the basics of Docker [here](https://docs.docker.com/get-started/).
 
 ## Erebus Base Image
 
-The aim for the "base image" is to install everything you need for generic Erebus controller
-development on Linux.
+The aim for the "base image" is to install everything you need for generic Erebus controller development on Linux, designed to make `Dockerfile` development for your project quick and easy.
 
 It is intended as a base to use for creating your own docker images (we will cover more about this later). However, it is not required to use this image, **but it very helpful as a baseline
 for simple projects**. More complicated projects may need to customise their container
 installs further as needed.
 
-This image can be built yourself, or you can download it from DockerHub.
+This image can be download from DockerHub (recommended), or built yourself.
 
 ### From Docker hub (Recommended)
 
